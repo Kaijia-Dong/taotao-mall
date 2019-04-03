@@ -2,6 +2,8 @@ package com.taotao.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * @description:
@@ -10,6 +12,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @create: 2019-04-02 11:36
  **/
 @SpringBootApplication
+@MapperScan("com.taotao.mapper.*")
+@ComponentScan(basePackages = {"com.taotao"})
 public class Application {
 
     public static void main(String[] args) {

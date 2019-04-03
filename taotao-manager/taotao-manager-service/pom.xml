@@ -9,7 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>taotao-manager-service</artifactId>
-    <packaging>war</packaging>
 
     <dependencies>
         <dependency>
@@ -17,11 +16,12 @@
             <artifactId>taotao-manager-dao</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
         <dependency>
-            <groupId>com.taotao</groupId>
-            <artifactId>taotao-manager-interface</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
         </dependency>
+
     </dependencies>
 
 </project>
