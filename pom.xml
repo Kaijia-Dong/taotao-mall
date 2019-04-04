@@ -74,12 +74,12 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
-            <!--&lt;!&ndash; Redis客户端 &ndash;&gt;-->
-            <!--<dependency>-->
-                <!--<groupId>redis.clients</groupId>-->
-                <!--<artifactId>jedis</artifactId>-->
-                <!--<version>${jedis.version}</version>-->
-            <!--</dependency>-->
+            <!-- Redis客户端 -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
             <!--&lt;!&ndash; dubbo相关 &ndash;&gt;-->
             <!--<dependency>-->
                 <!--<groupId>com.alibaba</groupId>-->

@@ -8,7 +8,24 @@ spring:
     username: root
     password: '!Dkj19930704'
     type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    host: 47.98.210.67
+    port: 6379
+    password: dkj64048231
+    timeout: 10000ms
+    jedis:
+      pool:
+        min-idle: 0
+        max-idle: 8
+        max-wait: -1ms
+        max-active: 8
 
+logging:
+  config: classpath:log4j2.yml
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
 
 #    #druid相关配置
 #    druid:
@@ -36,11 +53,3 @@ spring:
 #      #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
 #      pool-prepared-statements: false
 #      max-pool-prepared-statement-per-connection-size: 20
-#
-
-logging:
-  config: classpath:log4j2.yml
-
-mybatis:
-  configuration:
-    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
