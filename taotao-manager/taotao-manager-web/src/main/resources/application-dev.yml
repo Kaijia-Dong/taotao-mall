@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.98.210.67:3306/study?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: '!Dkj19930704'
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  redis:
+    host: 47.98.210.67
+    port: 6379
+    password: dkj64048231
+    timeout: 10000ms
+    jedis:
+      pool:
+        min-idle: 0
+        max-idle: 8
+        max-wait: -1ms
+        max-active: 8
+
+logging:
+  config: classpath:log4j2.yml
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
