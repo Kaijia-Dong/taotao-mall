@@ -31,6 +31,7 @@
         <pagehelper.version>1.2.10</pagehelper.version>
         <lombok.version>1.18.6</lombok.version>
         <mapper.version>2.1.5</mapper.version>
+        <validator.version>6.0.16.Final</validator.version>
     </properties>
 
     <dependencyManagement>
@@ -127,6 +128,11 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${validator.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
