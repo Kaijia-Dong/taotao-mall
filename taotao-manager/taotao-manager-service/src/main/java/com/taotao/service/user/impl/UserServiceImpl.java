@@ -1,11 +1,14 @@
 package com.taotao.service.user.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.taotao.mapper.user.UserMapper;
 import com.taotao.pojo.user.User;
 import com.taotao.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @description:
@@ -25,7 +28,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public PageInfo<User> findAllUser(int pageNum, int pageSize) {
-        return null;
+    public List<User> findAllUser(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<User> userList = userMapper.findAllUser();
+        PageInfo<User> userPageInfo = new PageInfo<>(userList);
+        return userPageInfo.getList();
+
     }
 }

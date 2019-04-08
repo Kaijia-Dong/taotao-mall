@@ -1,9 +1,10 @@
 package com.taotao.service.user.impl;
 
-import com.github.pagehelper.PageInfo;
 import com.taotao.pojo.user.User;
 import com.taotao.service.user.UserService;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @description:
@@ -20,7 +21,7 @@ public class NewUserServiceImpl implements UserService {
     }
 
     @Override
-    public PageInfo<User> findAllUser(int pageNum, int pageSize) {
+    public List<User> findAllUser(int pageNum, int pageSize) {
         return null;
     }
 }

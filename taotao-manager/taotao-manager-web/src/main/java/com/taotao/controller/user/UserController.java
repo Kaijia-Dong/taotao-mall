@@ -2,15 +2,14 @@ package com.taotao.controller.user;
 
 import com.taotao.pojo.user.User;
 import com.taotao.service.user.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @description:
@@ -31,4 +30,9 @@ public class UserController {
         return userService.addUser(user);
     }
 
+    @ResponseBody
+    @RequestMapping("all")
+    public List<User> allUser(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
+        return userService.findAllUser(pageNum, 10);
+    }
 }

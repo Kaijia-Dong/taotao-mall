@@ -1,12 +1,13 @@
 package com.taotao.service.user;
 
-import com.github.pagehelper.PageInfo;
 import com.taotao.pojo.user.User;
+
+import java.util.List;
 
 public interface UserService {
 
     int addUser(User user);
 
-    PageInfo<User> findAllUser(int pageNum, int pageSize);
+    List<User> findAllUser(int pageNum, int pageSize);
 
 }
