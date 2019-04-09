@@ -21,6 +21,12 @@ spring:
         max-wait: -1ms
         max-active: 8
 
+  rabbitmq:
+    addresses: 47.98.210.67
+    username: guest
+    password: guest
+    port: 5672
+
 logging:
   config: classpath:log4j2.yml
 

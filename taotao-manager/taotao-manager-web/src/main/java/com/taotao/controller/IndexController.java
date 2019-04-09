@@ -1,10 +1,12 @@
 package com.taotao.controller;
 
 import com.taotao.common.RedisLock;
+import com.taotao.service.rabbitmq.RabbitProducer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -67,5 +69,15 @@ public class IndexController {
             lock.unlock();
         }
         return "test-redis-lock";
+    }
+
+    @Autowired
+    RabbitProducer rabbitProducer;
+
+    @RequestMapping("send-message/{message}")
+    public String sendMessage(@PathVariable String message) {
+        rabbitProducer.sendString(message);
+        String str = "message: \"" + message + "\"has been sent";
+        return str;
     }
 }
