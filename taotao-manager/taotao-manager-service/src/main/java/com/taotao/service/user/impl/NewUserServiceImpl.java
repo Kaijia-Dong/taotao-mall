@@ -24,4 +24,9 @@ public class NewUserServiceImpl implements UserService {
     public List<User> findAllUser(int pageNum, int pageSize) {
         return null;
     }
+
+    @Override
+    public Boolean refreshRedis() {
+        return null;
+    }
 }

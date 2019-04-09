@@ -29,4 +29,3 @@ Loggers:
     level: trace
     AppenderRef:
     - ref: CONSOLE #复数加上-
-    - ref: ROLLING_FILE #复数加上-

@@ -1,14 +1,12 @@
 package com.taotao.controller;
 
+import com.taotao.common.RedisLock;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
 
 /**
  * @description:
@@ -40,7 +38,7 @@ public class IndexController {
         return "helloWorld";
     }
 
-    @RequestMapping("b")
+    @RequestMapping("helloWorld")
     public String helloWorldb() {
         String str = stringRedisTemplate.opsForValue().get("stringRedisTemplate");
         if (null == str || str == "") {
@@ -54,4 +52,20 @@ public class IndexController {
         return String.valueOf(b);
     }
 
+    @RequestMapping("test-redis-lock")
+    public String testRedisLock() {
+        RedisLock lock = new RedisLock(redisTemplate, "account:1", 10000, 20000);
+        try {
+            if (lock.lock()) {
+                log.info("已上锁，请打断点查看REDIS");
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            //为了让分布式锁的算法更稳键些，持有锁的客户端在解锁之前应该再检查一次自己的锁是否已经超时，再去做DEL操作，因为可能客户端因为某个耗时的操作而挂起，
+            //操作完的时候锁因为超时已经被别人获得，这时就不必解锁了。 ————这里没有做
+            lock.unlock();
+        }
+        return "test-redis-lock";
+    }
 }

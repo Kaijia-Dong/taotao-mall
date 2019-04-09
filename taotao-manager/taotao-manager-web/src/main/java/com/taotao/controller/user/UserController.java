@@ -35,4 +35,10 @@ public class UserController {
     public List<User> allUser(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
         return userService.findAllUser(pageNum, 10);
     }
+
+    @ResponseBody
+    @RequestMapping("refresh-redis")
+    public Boolean refreshRedis() {
+        return userService.refreshRedis();
+    }
 }

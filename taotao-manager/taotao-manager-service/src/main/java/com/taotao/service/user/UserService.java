@@ -10,4 +10,6 @@ public interface UserService {
 
     List<User> findAllUser(int pageNum, int pageSize);
 
+    Boolean refreshRedis();
+
 }
