@@ -52,8 +52,15 @@
 ##      test-on-borrow: false
 ##      test-on-return: false
 ##      #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
-spring:
-  profiles:
-    active: dev
+#spring:
+#  profiles:
+#    active: dev
     ##      pool-prepared-statements: false
 ##      max-pool-prepared-statement-per-connection-size: 20
+
+logging:
+  config: classpath:log4j2.yml
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
