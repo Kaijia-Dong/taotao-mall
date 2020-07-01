@@ -18,7 +18,7 @@
         <springboot.version>2.1.4.RELEASE</springboot.version>
         <junit.version>4.12</junit.version>
         <!-- MySQL与数据库版本保持一致 -->
-        <mysql.version>8.0.11</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <druid.version>1.1.15</druid.version>
         <mybatisstarter.version>1.3.2</mybatisstarter.version>
         <slf4j.version>1.7.26</slf4j.version>
